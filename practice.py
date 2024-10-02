@@ -1,4 +1,4 @@
-import unittest
+# import unittest
 
 
 # class Solution:
@@ -40,21 +40,33 @@ import unittest
 #         example = Solution()
 #         self.assertEqual(example.addUp(13), 91)    
 
-class Solution:
-    def sum_polygon(self, n):
-        count = (n-2) * 180
-        return count
+# class Solution:
+#     def matchHouses(self, step):
+#         if step == 0:
+#             return 0
+#         elif step == 1:
+#             return 6
+#         else:
+#             m = 6 + (5* (step-1))
+#             return m
         
     
-class TestValue(unittest.TestCase):
-    def test(self):
-        example = Solution()
-        self.assertEqual(example.sum_polygon(4), 360)  
+# class TestValue(unittest.TestCase):
+#     def test(self):
+#         example = Solution()
+#         self.assertEqual(example.matchHouses(87), 436)  
 
 
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
+def tri_recursion(k):
+    if k > 0:
+        result = k + tri_recursion(k-1)
+        print(result)
+    else:
+        result = 0
+    return result
 
-
+tri_recursion(2)
