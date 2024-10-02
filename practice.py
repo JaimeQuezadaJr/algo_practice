@@ -1,4 +1,4 @@
-# import unittest
+import unittest
 
 
 # class Solution:
@@ -41,16 +41,15 @@
 #         self.assertEqual(example.addUp(13), 91)    
 
 # class Solution:
-#     def matchHouses(self, step):
-#         if step == 0:
-#             return 0
-#         elif step == 1:
-#             return 6
-#         else:
-#             m = 6 + (5* (step-1))
-#             return m
-        
-    
+def min_max(arr: list):
+    for i in range(0, len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] >= arr[j]:
+                arr[i], arr[j] = arr[j], arr[i]
+    return list([arr[0], arr[len(arr)-1]])
+
+print(min_max([6,4,5,9,2]))     
+
 # class TestValue(unittest.TestCase):
 #     def test(self):
 #         example = Solution()
@@ -61,12 +60,12 @@
 # if __name__ == '__main__':
 #     unittest.main()
 
-def tri_recursion(k):
-    if k > 0:
-        result = k + tri_recursion(k-1)
-        print(result)
-    else:
-        result = 0
-    return result
+# def tri_recursion(k):
+#     if k > 0:
+#         result = k * tri_recursion(k-1)
+#         print(result)
+#     else:
+#         result = 1
+#     return result
 
-tri_recursion(2)
+# tri_recursion(5)
