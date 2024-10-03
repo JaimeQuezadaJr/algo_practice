@@ -41,28 +41,36 @@ import unittest
 #         self.assertEqual(example.addUp(13), 91)    
 
 # class Solution:
-def min_max(arr: list):
-    min_value = arr[0]
-    max_value = arr[0]
-    for i in arr:
-        if i < min_value:
-            min_value = i
-    for i in arr:
-        if i > max_value:
-            max_value = i
-    return list([min_value, max_value])
-
-print(min_max([6,4,5,9,2]))     
+#     def min_max(self, arr: list):
+#         min_value = arr[0]
+#         max_value = arr[0]
+#         for i in arr:
+#             if i < min_value:
+#                 min_value = i
+#         for i in arr:
+#             if i > max_value:
+#                 max_value = i
+#         return list([min_value, max_value])
+ 
 
 # class TestValue(unittest.TestCase):
 #     def test(self):
 #         example = Solution()
-#         self.assertEqual(example.matchHouses(87), 436)  
+#         self.assertEqual(example.min_max([4,2,7,10,6]), [2,10])  
 
 
 
 # if __name__ == '__main__':
 #     unittest.main()
+def reverse_arr(arr):
+    left = 0
+    right = len(arr) -1
+    while left < right:
+        arr[left], arr[right] = arr[right], arr[left]
+        left = left +1
+        right = right - 1
+    return arr
+print(reverse_arr([1,2,3,4]))
 
 # def tri_recursion(k):
 #     if k > 0:
