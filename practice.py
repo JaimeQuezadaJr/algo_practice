@@ -62,15 +62,43 @@ import unittest
 
 # if __name__ == '__main__':
 #     unittest.main()
-def reverse_arr(arr):
-    left = 0
-    right = len(arr) -1
-    while left < right:
-        arr[left], arr[right] = arr[right], arr[left]
-        left = left +1
-        right = right - 1
-    return arr
-print(reverse_arr([1,2,3,4]))
+# def reverse_arr(arr):
+#     left = 0
+#     right = len(arr) -1
+#     while left < right:
+#         arr[left], arr[right] = arr[right], arr[left]
+#         left = left +1
+#         right = right - 1
+#     return arr
+# print(reverse_arr([1,2,3,4,5,6,7,8]))
+
+# def rotate_arr(arr):
+#     temp = arr[len(arr)-1]
+#     arr.pop()
+#     arr.insert(0,temp)
+#     return arr
+
+# print(rotate_arr([1,2,3,4,5]))
+
+# def contain_duplicate(nums):
+#     s = set()
+#     for x in nums:
+#         if x in s:
+#             return True
+#         else:
+#             s.add(x)
+#         print(s)
+#     return False
+
+def contain_duplicate(nums):
+    n = len(nums)
+    for i in range(n):
+        for j in range(i+1, n):
+            if nums[i] == nums[j]:
+                return True
+    return False
+
+print(contain_duplicate([1,3,5,6,1,7]))
 
 # def tri_recursion(k):
 #     if k > 0:
