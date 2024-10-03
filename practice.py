@@ -42,11 +42,15 @@ import unittest
 
 # class Solution:
 def min_max(arr: list):
-    for i in range(0, len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] >= arr[j]:
-                arr[i], arr[j] = arr[j], arr[i]
-    return list([arr[0], arr[len(arr)-1]])
+    min_value = arr[0]
+    max_value = arr[0]
+    for i in arr:
+        if i < min_value:
+            min_value = i
+    for i in arr:
+        if i > max_value:
+            max_value = i
+    return list([min_value, max_value])
 
 print(min_max([6,4,5,9,2]))     
 
