@@ -87,18 +87,34 @@ import unittest
 #             return True
 #         else:
 #             s.add(x)
-#         print(s)
 #     return False
 
-def contain_duplicate(nums):
-    n = len(nums)
-    for i in range(n):
-        for j in range(i+1, n):
-            if nums[i] == nums[j]:
-                return True
-    return False
+# def remove_duplicate(nums):
+#     s = set(nums)
+#     nums = list(s)
+#     return nums
+# print(remove_duplicate([1,2,3,1,6]))
+    
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr) - i - 1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
 
-print(contain_duplicate([1,3,5,6,1,7]))
+print(bubble_sort([1,9,3,7,15,11]))
+
+# def contain_duplicate(nums):
+#     n = len(nums)
+#     for i in range(n):
+#         for j in range(i+1, n):
+#             if nums[i] == nums[j]:
+#                 return True
+#     return False
+
+
+
+
 
 # def tri_recursion(k):
 #     if k > 0:
