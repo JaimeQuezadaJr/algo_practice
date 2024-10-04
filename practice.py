@@ -95,14 +95,54 @@ import unittest
 #     return nums
 # print(remove_duplicate([1,2,3,1,6]))
     
-def bubble_sort(arr):
-    for i in range(len(arr)):
-        for j in range(len(arr) - i - 1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-    return arr
+# def bubble_sort(arr):
+#     for i in range(len(arr)):
+#         for j in range(len(arr) - i - 1):
+#             if arr[j] > arr[j+1]:
+#                 arr[j], arr[j+1] = arr[j+1], arr[j]
+#                 print("swapped", i, j)
+#         print(i,j)
+#         print(arr)
+#     return arr
 
-print(bubble_sort([1,9,3,7,15,11]))
+# print(bubble_sort([15,9,3,7,1,11]))
+
+# def bubble_sort(arr):
+#     n = len(arr)
+#     flag = True
+#     while flag:
+#         flag = False
+#         for i in range(1,n):
+#             if arr[i-1] > arr[i]:
+#                 flag = True
+#                 arr[i-1], arr[i] = arr[i], arr[i-1]
+#         print(flag, i)
+#     return arr
+
+
+# print(bubble_sort([15,9,3,7,1,11]))
+
+# def insertion_sort(arr):
+#     n = len(arr)
+#     for i in range(1,n):
+#         for j in range(i, 0, -1):
+#             if arr[j-1] > arr[j]:
+#                 arr[j-1], arr[j] = arr[j], arr[j-1]
+#             else:
+#                 break
+#     return arr
+# print(insertion_sort([15,9,3,7,1,11]))    
+
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr
+print(selection_sort([15,9,3,7,1,11])) 
 
 # def contain_duplicate(nums):
 #     n = len(nums)
