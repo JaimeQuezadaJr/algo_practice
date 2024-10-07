@@ -133,16 +133,16 @@ import unittest
 #     return arr
 # print(insertion_sort([15,9,3,7,1,11]))    
 
-def selection_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        min_index = i
-        for j in range(i, n):
-            if arr[j] < arr[min_index]:
-                min_index = j
-        arr[i], arr[min_index] = arr[min_index], arr[i]
-    return arr
-print(selection_sort([15,9,3,7,1,11])) 
+# def selection_sort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         min_index = i
+#         for j in range(i, n):
+#             if arr[j] < arr[min_index]:
+#                 min_index = j
+#         arr[i], arr[min_index] = arr[min_index], arr[i]
+#     return arr
+# print(selection_sort([15,9,3,7,1,11])) 
 
 # def contain_duplicate(nums):
 #     n = len(nums)
@@ -165,3 +165,37 @@ print(selection_sort([15,9,3,7,1,11]))
 #     return result
 
 # tri_recursion(5)
+
+# def duplicates(arr):
+#     new_arr = set()
+#     d = []
+#     for i in arr:
+#         if i in new_arr:
+#             d.append(i)
+#         else:
+#             new_arr.add(i)    
+#     return d
+
+# print(duplicates([1,2,3,1,6,6]))
+
+# def occurences(arr, x):
+#     o = 0
+#     for i in arr:
+#         if i == x:
+#             o +=1
+#     return o
+
+# print(occurences([1,1,2,2,2,2,3], 2))
+
+def left_negative(arr):
+    n = len(arr)
+    j = 0
+    for i in range(0, n):
+        if arr[i] < 0:
+            temp = arr[i]
+            arr[i]= arr[j]
+            arr[j] = temp
+            j = j + 1
+    return arr
+
+print(left_negative([-12,11,-13,-5,6,-7,5,-3,-6]))
