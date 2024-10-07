@@ -199,3 +199,14 @@ def left_negative(arr):
     return arr
 
 print(left_negative([-12,11,-13,-5,6,-7,5,-3,-6]))
+
+def move_to_front(arr):
+    n = len(arr)
+    for i in range(n):
+        if arr[i] > 0 :
+            arr.insert(arr[i-1], arr[i])
+            arr.pop(i)
+
+    return arr
+
+print(move_to_front([-1,2,-3,4, 7]))
