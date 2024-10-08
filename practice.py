@@ -212,17 +212,35 @@ import unittest
 # print(move_to_front([-1,2,-3,4, 7]))
 
 
-def majority(arr):
-    n = len(arr)
-    for i in range(n):
-        count = 0
-        for j in range(n):
-            if arr[i] == arr[j]:
-                count +=1
-        if count > n // 2:
-            return arr[i]
-    return -1
+# def majority(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         count = 0
+#         for j in range(n):
+#             if arr[i] == arr[j]:
+#                 count +=1
+#         if count > n // 2:
+#             return arr[i]
+#     return -1
 
-print(majority([1,1,2,1,3,5,1]))
+# print(majority([1,1,2,1,3,5,1]))
 
 
+# def two_sum(nums, target):
+#     n = len(nums)
+#     for i in range(n):
+#         for j in range(n):
+#             if nums[i] + nums[j] == target and i != j:
+#                 return i , j
+            
+# print(two_sum([3,2,4], 6))
+
+def palindrome(x):
+    new_arr=[]
+    for i in str(x):
+        new_arr.append(i)
+    if new_arr == new_arr[::-1]:
+        return True
+    else:
+        return False    
+print(palindrome(121))
