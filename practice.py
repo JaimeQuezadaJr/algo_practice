@@ -187,26 +187,42 @@ import unittest
 
 # print(occurences([1,1,2,2,2,2,3], 2))
 
-def left_negative(arr):
-    n = len(arr)
-    j = 0
-    for i in range(0, n):
-        if arr[i] < 0:
-            temp = arr[i]
-            arr[i]= arr[j]
-            arr[j] = temp
-            j = j + 1
-    return arr
+# def left_negative(arr):
+#     n = len(arr)
+#     j = 0
+#     for i in range(0, n):
+#         if arr[i] < 0:
+#             temp = arr[i]
+#             arr[i]= arr[j]
+#             arr[j] = temp
+#             j = j + 1
+#     return arr
 
-print(left_negative([-12,11,-13,-5,6,-7,5,-3,-6]))
+# print(left_negative([-12,11,-13,-5,6,-7,5,-3,-6]))
 
-def move_to_front(arr):
+# def move_to_front(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         if arr[i] > 0 :
+#             arr.insert(arr[i-1], arr[i])
+#             arr.pop(i)
+
+#     return arr
+
+# print(move_to_front([-1,2,-3,4, 7]))
+
+
+def majority(arr):
     n = len(arr)
     for i in range(n):
-        if arr[i] > 0 :
-            arr.insert(arr[i-1], arr[i])
-            arr.pop(i)
+        count = 0
+        for j in range(n):
+            if arr[i] == arr[j]:
+                count +=1
+        if count > n // 2:
+            return arr[i]
+    return -1
 
-    return arr
+print(majority([1,1,2,1,3,5,1]))
 
-print(move_to_front([-1,2,-3,4, 7]))
+
