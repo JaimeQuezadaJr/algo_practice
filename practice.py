@@ -235,12 +235,24 @@ import unittest
             
 # print(two_sum([3,2,4], 6))
 
-def palindrome(x):
-    new_arr=[]
-    for i in str(x):
-        new_arr.append(i)
-    if new_arr == new_arr[::-1]:
-        return True
-    else:
-        return False    
-print(palindrome(121))
+# def palindrome(x):
+#     new_arr=[]
+#     for i in str(x):
+#         new_arr.append(i)
+#     if new_arr == new_arr[::-1]:
+#         return True
+#     else:
+#         return False    
+# print(palindrome(121))
+
+def romanToInt(numeral):
+    roman = {'I': 1,'V': 5,'X':10,'L':50,'C':100,'D' :500,'M' :1000 }
+    count = 0
+    for char in numeral:
+        for i in roman.keys():
+            if i == char:
+                count += roman[i]
+    return count
+    
+
+print(romanToInt('XIV'))
