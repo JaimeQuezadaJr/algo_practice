@@ -257,18 +257,18 @@ import unittest
 
 # print(romanToInt('XIV'))
 
-def longestCommonPrefix(arr):
-    min_s = min(arr)
-    max_s = max(arr)
-    if not min_s:
-        return ""
-    for i in range(len(min_s)):
-        if max_s[i] != min_s[i]:
-            return max_s[:i]
-    return min_s[:]
+# def longestCommonPrefix(arr):
+#     min_s = min(arr)
+#     max_s = max(arr)
+#     if not min_s:
+#         return ""
+#     for i in range(len(min_s)):
+#         if max_s[i] != min_s[i]:
+#             return max_s[:i]
+#     return min_s[:]
 
 
-print(longestCommonPrefix(["flower", "flow", "flight"]))
+# print(longestCommonPrefix(["flower", "flow", "flight"]))
 
 # l = [1,2,3]
 # m = l[:0]
@@ -279,11 +279,20 @@ print(longestCommonPrefix(["flower", "flow", "flight"]))
 # for i in str(m):
 #     print(i)
 
-# def longestPre(arr):
-#     n = len(arr)
-#     new_arr = []
-#     for i in arr:
-#         for l in i:
-#             print(l)
+def isValid(s:str):
+    openers = ['(', '[', '{']
+    closers = [')', ']', '}']
+    stack = []
+    for char in s:
+        if char in openers:
+            stack.append(char)
+        else:
+            if not stack or openers.index(stack[-1]) != closers.index(char):
+                return False
+            else:
+                stack.pop()
+    return not stack
 
-# print(longestPre(["flower", "flow", "flight"]))
+
+print(isValid('()[{}]'))
+    
