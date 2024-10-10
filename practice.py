@@ -279,20 +279,46 @@ import unittest
 # for i in str(m):
 #     print(i)
 
-def isValid(s:str):
-    openers = ['(', '[', '{']
-    closers = [')', ']', '}']
-    stack = []
-    for char in s:
-        if char in openers:
-            stack.append(char)
+# def isValid(s:str):
+#     openers = ['(', '[', '{']
+#     closers = [')', ']', '}']
+#     stack = []
+#     for char in s:
+#         if char in openers:
+#             stack.append(char)
+#         elif not stack or openers.index(stack[-1]) != closers.index(char):
+#             return False
+#         else:
+#             stack.pop()
+#     return not stack
+
+
+# print(isValid('(([])}'))
+
+class ListNode:
+    def __init__(self, val = 0, next = None):
+        self.val = val
+        self.next = next
+
+def mergeTwoLists(list1:ListNode, list2:ListNode):
+    dummy = ListNode()
+    curr = dummy
+    while list1 and list2:
+        if list1.val < list2.val:
+            curr.next = list1
+            curr = list1
+            list1 = list1.next
         else:
-            if not stack or openers.index(stack[-1]) != closers.index(char):
-                return False
-            else:
-                stack.pop()
-    return not stack
+            curr.next = list2
+            curr = list2
+            list2 = list2.next
+    curr.next = list1 if list1 else list2
+    return dummy.next
 
 
-print(isValid('()[{}]'))
+dumm1 = ListNode([1,2,4])
+dumm2 = ListNode([1,3,4])
+print(mergeTwoLists(dumm1, dumm2))
+
+
     
