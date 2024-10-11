@@ -360,12 +360,30 @@ import unittest
 
 # print(removeDuplicates([1,1,1,2,2,3,4,4,4]))
 
-def removeDuplicates(nums):
-    j = 1
-    for i in range(1, len(nums)):
-        if nums[i] != nums[i-1]:
-            nums[j] = nums[i]
-            j+=1
-    return nums,j
+# def removeDuplicates(nums):
+#     j = 1
+#     for i in range(1, len(nums)):
+#         if nums[i] != nums[i-1]:
+#             nums[j] = nums[i]
+#             j+=1
+#     return nums,j
 
-print(removeDuplicates([0,1,1,2,2,3,4,4]))
+# print(removeDuplicates([0,1,1,2,2,3,4,4]))
+
+def removeElement(nums, val):
+    n = len(nums)
+    j = 0
+    for i in range(n):
+        if nums[i] != val:
+            nums[j] = nums[i]
+            j +=1
+    return nums, j
+
+print(removeElement([3,2,2,3], 3))
+
+arr = [1,2,3,4]
+
+arr[3], arr[0]= arr[0], arr[3]
+
+print(arr)
+
