@@ -295,30 +295,77 @@ import unittest
 
 # print(isValid('(([])}'))
 
-class ListNode:
-    def __init__(self, val = 0, next = None):
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val = 0, next = None):
+#         self.val = val
+#         self.next = next
 
-def mergeTwoLists(list1:ListNode, list2:ListNode):
-    dummy = ListNode()
-    curr = dummy
-    while list1 and list2:
-        if list1.val < list2.val:
-            curr.next = list1
-            curr = list1
-            list1 = list1.next
-        else:
-            curr.next = list2
-            curr = list2
-            list2 = list2.next
-    curr.next = list1 if list1 else list2
-    return dummy.next
-
-
-dumm1 = ListNode([1,2,4])
-dumm2 = ListNode([1,3,4])
-print(mergeTwoLists(dumm1, dumm2))
+# def mergeTwoLists(list1:ListNode, list2:ListNode):
+#     dummy = ListNode()
+#     curr = dummy
+#     while list1 and list2:
+#         if list1.val < list2.val:
+#             curr.next = list1
+#             curr = list1
+#             list1 = list1.next
+#         else:
+#             curr.next = list2
+#             curr = list2
+#             list2 = list2.next
+#     if list1:
+#         curr.next = list1 
+#     else:
+#         curr.next = list2
+#     return dummy.next
 
 
-    
+# dumm1 = ListNode([1,2,4])
+# dumm2 = ListNode([1,3,4])
+# print(mergeTwoLists(dumm1, dumm2))
+
+# remove duplicates not in place
+# def removeDuplicates(nums):
+#     n = len(nums)
+#     nums_set = []
+#     new_arr = []
+
+#     for i in nums:
+#         if i in nums_set:
+#             new_arr.append(i)
+#         else:
+#             nums_set.append(i)
+#     for i in range(len(new_arr)):
+#         new_arr[i]= 0
+#     k = len(nums_set)
+#     return nums_set + new_arr, k
+
+# print(removeDuplicates([1,1,1,2,2,3,4,4]))
+
+
+# remove duplicates in place
+
+# def removeDuplicates(nums):
+#     n = len(nums)
+#     nums_set = set()
+
+#     for i in range(n):
+#         print(i)
+#         if nums[i] in nums_set:
+#             nums[i] = 0
+#         else:
+#             nums_set.add(nums[i])
+#             print("added to set", i)
+#     nums.sort()
+#     return nums
+
+# print(removeDuplicates([1,1,1,2,2,3,4,4,4]))
+
+def removeDuplicates(nums):
+    j = 1
+    for i in range(1, len(nums)):
+        if nums[i] != nums[i-1]:
+            nums[j] = nums[i]
+            j+=1
+    return nums,j
+
+print(removeDuplicates([0,1,1,2,2,3,4,4]))
