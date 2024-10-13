@@ -245,17 +245,19 @@ import unittest
 #         return False    
 # print(palindrome(121))
 
-# def romanToInt(numeral):
-#     roman = {'I': 1,'V': 5,'X':10,'L':50,'C':100,'D' :500,'M' :1000 }
-#     count = 0
-#     for char in numeral:
-#         for i in roman.keys():
-#             if i == char:
-#                 count += roman[i]
-#     return count
+def romanToInt(numeral):
+    roman = {'I': 1,'V': 5,'X':10,'L':50,'C':100,'D' :500,'M' :1000 }
+    count = 0
+    for char in numeral:
+        for i in roman.keys():
+            if i < char:
+                count += 1
+            elif i == char:
+                count += roman[i]
+    return count 
     
 
-# print(romanToInt('XIV'))
+print(romanToInt('XIV'))
 
 # def longestCommonPrefix(arr):
 #     min_s = min(arr)
@@ -370,20 +372,20 @@ import unittest
 
 # print(removeDuplicates([0,1,1,2,2,3,4,4]))
 
-def removeElement(nums, val):
-    n = len(nums)
-    j = 0
-    for i in range(n):
-        if nums[i] != val:
-            nums[j] = nums[i]
-            j +=1
-    return nums, j
+# def removeElement(nums, val):
+#     n = len(nums)
+#     j = 0
+#     for i in range(n):
+#         if nums[i] != val:
+#             nums[j] = nums[i]
+#             j +=1
+#     return nums, j
 
-print(removeElement([3,2,2,3], 3))
+# print(removeElement([3,2,2,3], 3))
 
-arr = [1,2,3,4]
+# arr = [1,2,3,4]
 
-arr[3], arr[0]= arr[0], arr[3]
+# arr[3], arr[0]= arr[0], arr[3]
 
-print(arr)
+# print(arr)
 
