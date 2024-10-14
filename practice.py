@@ -391,18 +391,69 @@ import unittest
 
 # print(arr)
 
-def strStr(haystack, needle):
-    n = len(haystack)
-    m = len(needle)
-    for i in range(n):
-        j = 0
-        for k in range(i,n):
-            if haystack[k] == needle[j]:
-                j += 1
-            else:
-                break
-            if j == m:
-                return i
-    return -1
+# def strStr(haystack, needle):
+#     n = len(haystack)
+#     m = len(needle)
+#     for i in range(n):
+#         j = 0
+#         for k in range(i,n):
+#             if haystack[k] == needle[j]:
+#                 j += 1
+#             else:
+#                 break
+#             if j == m:
+#                 return i
+#     return -1
 
-print(strStr("butsadbutsad", "sad"))
+# print(strStr("butsadbutsad", "sad"))
+
+#novice approach
+# def searchInsert(nums, target):
+#     n = len(nums)
+#     for i in range(n):
+#         if nums[i] == target:
+#             return i
+#     for x in range(n):
+#         if target < nums[x]:
+#             nums.insert(x, target)
+#             return x
+#     for j in range(n):
+#         if target != nums[j]:
+#             nums.append(target)
+#             return nums.index(target)
+
+# print(searchInsert([1,3,5,6], 4))
+
+#binary search
+def searchInsert(nums, target):
+    n = len(nums)
+    l = 0
+    r = n - 1
+
+    while l <= r:
+        m = (l+r) // 2
+        print(l,r,m)
+        if nums[m] < target:
+            print("l changed")
+            l = m + 1
+        elif nums[m] > target:
+            print("r changed")
+            r = m - 1
+        else:
+            return m
+    if nums[m] < target:
+        return m + 1
+    else:
+        return m
+    
+print(searchInsert([1,3,5,6], 3))
+
+# x = 0
+# y = 5
+# while x < y:
+#     if x < y:
+#         print('hello')
+#         x +=1
+#         y -=1
+#     else:
+#         print('out')
