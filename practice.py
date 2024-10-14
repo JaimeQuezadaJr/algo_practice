@@ -245,21 +245,21 @@ import unittest
 #         return False    
 # print(palindrome(121))
 
-def romanToInt(numeral):
-    roman = {'I': 1,'V': 5,'X':10,'L':50,'C':100,'D' :500,'M' :1000 }
-    count = 0
-    new_arr = []
-    for char in numeral:
-        for i in roman.keys():
-            if i < char:
-                count += 1
-            elif i == char:
-                count += roman[i]
-                new_arr.append()
-    return count 
+# def romanToInt(numeral):
+#     roman = {'I': 1,'V': 5,'X':10,'L':50,'C':100,'D' :500,'M' :1000 }
+#     count = 0
+#     new_arr = []
+#     for char in numeral:
+#         for i in roman.keys():
+#             if i < char:
+#                 count += 1
+#             elif i == char:
+#                 count += roman[i]
+#                 new_arr.append()
+#     return count 
     
 
-print(romanToInt('XIV'))
+# print(romanToInt('XIV'))
 
 # def longestCommonPrefix(arr):
 #     min_s = min(arr)
@@ -391,3 +391,18 @@ print(romanToInt('XIV'))
 
 # print(arr)
 
+def strStr(haystack, needle):
+    n = len(haystack)
+    m = len(needle)
+    for i in range(n):
+        j = 0
+        for k in range(i,n):
+            if haystack[k] == needle[j]:
+                j += 1
+            else:
+                break
+            if j == m:
+                return i
+    return -1
+
+print(strStr("butsadbutsad", "sad"))
