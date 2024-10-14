@@ -248,12 +248,14 @@ import unittest
 def romanToInt(numeral):
     roman = {'I': 1,'V': 5,'X':10,'L':50,'C':100,'D' :500,'M' :1000 }
     count = 0
+    new_arr = []
     for char in numeral:
         for i in roman.keys():
             if i < char:
                 count += 1
             elif i == char:
                 count += roman[i]
+                new_arr.append()
     return count 
     
 
