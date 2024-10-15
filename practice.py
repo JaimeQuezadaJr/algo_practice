@@ -450,20 +450,44 @@ import unittest
 # print(searchInsert([1,3,5,6], 3))
 
 #binary search cleaner version
-def searchInsert(nums, target):
-    n = len(nums)
-    l = 0
-    r = n - 1
+# def searchInsert(nums, target):
+#     n = len(nums)
+#     l = 0
+#     r = n - 1
 
-    while l <= r:
-        mid = (l+r) // 2
-        if nums[mid] == target:
-            return mid
-        elif nums[mid] > target:
-            r = mid - 1
-        else:
-            l = mid + 1
-    return l
+#     while l <= r:
+#         mid = (l+r) // 2
+#         if nums[mid] == target:
+#             return mid
+#         elif nums[mid] > target:
+#             r = mid - 1
+#         else:
+#             l = mid + 1
+#     return l
     
-print(searchInsert([1,3,5,6], 7))
+# print(searchInsert([1,3,5,6], 7))
 
+def lengthOfLastWord(s):
+    letter_count = 0
+    r = len(s)
+
+    for char in range(r-1, -1, -1):
+        print(s[char])
+        if s[char] != ' ':
+            letter_count += 1
+        elif letter_count != 0:
+            return letter_count
+        else:
+            continue
+
+    # for l in s:
+    #     if l == " ":
+    #         new_arr.append(word)
+    #         word = ""
+    #     else:
+    #         word += l
+    # new_arr.append(word)
+    # print(new_arr)
+    # return len(new_arr[len(new_arr)-1])
+
+print(lengthOfLastWord(" fly me moon    "))
