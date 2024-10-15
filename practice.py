@@ -467,27 +467,33 @@ import unittest
     
 # print(searchInsert([1,3,5,6], 7))
 
-def lengthOfLastWord(s):
-    letter_count = 0
-    r = len(s)
+# def lengthOfLastWord(s):
+#     letter_count = 0
+#     r = len(s)
 
-    for char in range(r-1, -1, -1):
-        print(s[char])
-        if s[char] != ' ':
-            letter_count += 1
-        elif letter_count != 0:
-            return letter_count
-        else:
-            continue
+#     for char in range(r-1, -1, -1):
+#         if s[char] != ' ':
+#             letter_count += 1
+#         elif letter_count != 0:
+#             return letter_count
+#     return letter_count
 
-    # for l in s:
-    #     if l == " ":
-    #         new_arr.append(word)
-    #         word = ""
-    #     else:
-    #         word += l
-    # new_arr.append(word)
-    # print(new_arr)
-    # return len(new_arr[len(new_arr)-1])
+# print(lengthOfLastWord("moon"))
 
-print(lengthOfLastWord(" fly me moon    "))
+def plusOne(digits):
+    count = ""
+    new_arr =[]
+    for i in digits:
+        count += str(i)
+    d = int(count) + 1
+    for i in str(d):
+        new_arr.append(int(i))
+    return new_arr
+
+print(plusOne([99]))
+
+arr = [1,2,3]
+count = 0
+for i in range(len(arr)):
+    count += arr[i]
+print(count)
