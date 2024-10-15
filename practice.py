@@ -425,35 +425,45 @@ import unittest
 # print(searchInsert([1,3,5,6], 4))
 
 #binary search
+# def searchInsert(nums, target):
+#     n = len(nums)
+#     l = 0
+#     r = n - 1
+
+#     while l <= r:
+#         m = (l+r) // 2
+#         print(l,r,m)
+#         if nums[m] < target:
+#             print("l changed")
+#             l = m + 1
+#         elif nums[m] > target:
+#             print("r changed")
+#             r = m - 1
+#         else:
+#             return m
+#     print(m)
+#     if nums[m] < target:
+#         return m + 1
+#     else:
+#         return m
+    
+# print(searchInsert([1,3,5,6], 3))
+
+#binary search cleaner version
 def searchInsert(nums, target):
     n = len(nums)
     l = 0
     r = n - 1
 
     while l <= r:
-        m = (l+r) // 2
-        print(l,r,m)
-        if nums[m] < target:
-            print("l changed")
-            l = m + 1
-        elif nums[m] > target:
-            print("r changed")
-            r = m - 1
+        mid = (l+r) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] > target:
+            r = mid - 1
         else:
-            return m
-    if nums[m] < target:
-        return m + 1
-    else:
-        return m
+            l = mid + 1
+    return l
     
-print(searchInsert([1,3,5,6], 3))
+print(searchInsert([1,3,5,6], 7))
 
-# x = 0
-# y = 5
-# while x < y:
-#     if x < y:
-#         print('hello')
-#         x +=1
-#         y -=1
-#     else:
-#         print('out')
