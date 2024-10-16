@@ -480,20 +480,33 @@ import unittest
 
 # print(lengthOfLastWord("moon"))
 
+#plusone novice
+# def plusOne(digits):
+#     count = ""
+#     new_arr =[]
+#     for i in digits:
+#         count += str(i)
+#     d = int(count) + 1
+#     for i in str(d):
+#         new_arr.append(int(i))
+#     return new_arr
+
+# print(plusOne([99]))
+
+# arr = [1,2,3]
+# count = 0
+# for i in range(len(arr)):
+#     count += arr[i]
+# print(count)
+
 def plusOne(digits):
-    count = ""
-    new_arr =[]
-    for i in digits:
-        count += str(i)
-    d = int(count) + 1
-    for i in str(d):
-        new_arr.append(int(i))
-    return new_arr
+    n = len(digits)
+    for i in range(n-1, -1, -1):
+        if digits[i] + 1 != 10:
+            digits[i] += 1
+            return digits
+        digits[i] = 0
+    if i == 0:
+        return[1] + digits
 
-print(plusOne([99]))
-
-arr = [1,2,3]
-count = 0
-for i in range(len(arr)):
-    count += arr[i]
-print(count)
+print(plusOne([9,9,9]))
