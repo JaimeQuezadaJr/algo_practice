@@ -499,14 +499,48 @@ import unittest
 #     count += arr[i]
 # print(count)
 
-def plusOne(digits):
-    n = len(digits)
-    for i in range(n-1, -1, -1):
-        if digits[i] + 1 != 10:
-            digits[i] += 1
-            return digits
-        digits[i] = 0
-    if i == 0:
-        return[1] + digits
+# def plusOne(digits):
+#     n = len(digits)
+#     for i in range(n-1, -1, -1):
+#         if digits[i] + 1 != 10:
+#             digits[i] += 1
+#             return digits
+#         digits[i] = 0
+#     if i == 0:
+#         return[1] + digits
 
-print(plusOne([9,9,9]))
+# print(plusOne([9,9,9]))
+
+def addBinary(a, b):
+    x = list(a)
+    y = list(b)
+    sum = []
+    carry = 0
+    if len(x) < len(y):
+        z = len(y) - len(x)
+        for i in range(z):
+            x.append('0')
+            x.reverse()
+            n = len(x)
+    elif len(y) < len(x):
+        z = len(x) - len(y)
+        for i in range(z):
+            y.append('0')
+            y.reverse()
+            n = len(y)
+    for i in range(n-1, -1, -1):
+        if int(x[i]) + int(y[i]) > 1:
+            sum.append(0)
+            carry = 1
+        elif int(x[i]) + int(y[i]) == 0:
+            sum.append(0)
+            carry = 0
+
+print(addBinary("11","1"))
+
+q = ['1','1']
+t = ['2', '2']
+
+print(int(q[0]) + int(t[0]))
+
+
