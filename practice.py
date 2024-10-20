@@ -520,27 +520,46 @@ def addBinary(a, b):
         z = len(y) - len(x)
         for i in range(z):
             x.append('0')
-            x.reverse()
-            n = len(x)
+        x.reverse()
+        n = len(x)
     elif len(y) < len(x):
         z = len(x) - len(y)
         for i in range(z):
             y.append('0')
-            y.reverse()
-            n = len(y)
+        y.reverse()
+        n = len(y)
+    else:
+        n = len(x)
     for i in range(n-1, -1, -1):
         if int(x[i]) + int(y[i]) > 1:
-            sum.append(0)
-            carry = 1
+            if carry == 1:
+                sum.append(1)
+            else:
+                sum.append(0)
+                carry = 1
         elif int(x[i]) + int(y[i]) == 0:
-            sum.append(0)
-            carry = 0
+            if carry == 1:
+                sum.append(1)
+                carry = 0
+            else:
+                sum.append(0)
+                carry = 0
+        elif int(x[i]) + int(y[i]) == 1:
+            if carry == 1:
+                sum.append(0)
+            else:
+                sum.append(1)
+                carry = 0
+    if carry == 1:
+        sum.append(1)            
+    sum.reverse()
+    return ''.join(map(str,sum))
 
-print(addBinary("11","1"))
+print(addBinary("100","110110"))
 
-q = ['1','1']
-t = ['2', '2']
+# q = ['1','1']
+# t = ['2', '2']
 
-print(int(q[0]) + int(t[0]))
+# print(int(q[0]) + int(t[0]))
 
 
