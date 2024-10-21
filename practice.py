@@ -560,24 +560,42 @@ import unittest
 
 
 #add binary correct solution
-def addBinary(a, b):
-    s = []
-    carry = 0
-    i = len(a) - 1
-    j = len(b) - 1
+# def addBinary(a, b):
+#     s = []
+#     carry = 0
+#     i = len(a) - 1
+#     j = len(b) - 1
 
-    while i >= 0 or j >= 0 or carry:
-        if i >= 0:
-            carry += int(a[i])
-            i -= 1
-        if j >= 0:
-            carry += int(b[j])
-            j -= 1
-        s.append(str(carry % 2))
-        carry //= 2
+#     while i >= 0 or j >= 0 or carry:
+#         if i >= 0:
+#             carry += int(a[i])
+#             i -= 1
+#         if j >= 0:
+#             carry += int(b[j])
+#             j -= 1
+#         s.append(str(carry % 2))
+#         carry //= 2
 
-    return ''.join(reversed(s))
+#     return ''.join(reversed(s))
 
-print(addBinary('100','111'))
+# print(addBinary('100','111'))
+
+def mySqrt(x):
+    l = 1
+    r = x
+    while l <= r:
+        m = (l + r) // 2
+        m_squared = m * m
+        if m_squared == x:
+            return m
+        elif m_squared < x:
+            l = m + 1
+        else:
+            r = m - 1
+    return r
+
+
+print(mySqrt(4))
+
 
 
