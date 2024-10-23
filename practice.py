@@ -580,22 +580,30 @@ import unittest
 
 # print(addBinary('100','111'))
 
-def mySqrt(x):
-    l = 1
-    r = x
-    while l <= r:
-        m = (l + r) // 2
-        m_squared = m * m
-        if m_squared == x:
-            return m
-        elif m_squared < x:
-            l = m + 1
-        else:
-            r = m - 1
-    return r
+# def mySqrt(x):
+#     l = 1
+#     r = x
+#     while l <= r:
+#         m = (l + r) // 2
+#         m_squared = m * m
+#         if m_squared == x:
+#             return m
+#         elif m_squared < x:
+#             l = m + 1
+#         else:
+#             r = m - 1
+#     return r
 
 
-print(mySqrt(4))
+# print(mySqrt(4))
 
+class Carrier:
+    fixed_carrier = 'american airlines'
+    def __init__(self,year, name, city):
+        self.year = year
+        self.name = name
+        self.city = city
 
+Carrier1 = Carrier(2001, 'United Airlines', 'Chicago')
+print(Carrier.fixed_carrier)
 
