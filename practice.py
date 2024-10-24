@@ -598,12 +598,36 @@ import unittest
 # print(mySqrt(4))
 
 class Carrier:
-    fixed_carrier = 'american airlines'
+    overseer = 'FAA'
+    all_carriers = []
     def __init__(self,year, name, city):
         self.year = year
         self.name = name
         self.city = city
+        self.flights = []
+        self.total_workers = 0
+        Carrier.all_carriers.append(self)
 
-Carrier1 = Carrier(2001, 'United Airlines', 'Chicago')
-print(Carrier.fixed_carrier)
+    @classmethod
+    def change_overseer(cls, new_overseer:str):
+        cls.overseer = new_overseer
+        return cls
+    def add_flight(self, flight):
+        self.flights.append(flight)
+        return self
 
+class Flight:
+    def __init__(self, number, starting_city, ending_city):
+        self.number = number
+        self.starting_city = starting_city
+        self.ending_city = ending_city
+
+cd_airlines = Carrier(2022, "Code Airlines", 'Fremont')
+my_airline = Carrier(1903, "Wright Bros", 'London')
+flight_one = Flight(555,'seattle', 'reno')
+flight_two = Flight(100, 'phoenix', 'newark')
+
+cd_airlines.add_flight(flight_one).add_flight(flight_two)
+
+for this_flight in cd_airlines.flights:
+    print(this_flight.number)
