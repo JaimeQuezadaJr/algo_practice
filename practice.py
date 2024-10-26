@@ -629,5 +629,4 @@ flight_two = Flight(100, 'phoenix', 'newark')
 
 cd_airlines.add_flight(flight_one).add_flight(flight_two)
 
-for this_flight in cd_airlines.flights:
-    print(this_flight.number)
+
