@@ -235,6 +235,17 @@ import unittest
             
 # print(two_sum([3,2,4], 6))
 
+def two_sum(nums, target):
+    hashmap = {}
+    for i in range(len(nums)):
+        diff = target - nums[i]
+        if diff in hashmap:
+            return [hashmap[diff], i]
+        else:
+            hashmap[nums[i]] = i
+
+print(two_sum([1,2,4,6,8], 9))
+
 # def palindrome(x):
 #     new_arr=[]
 #     for i in str(x):
@@ -606,6 +617,7 @@ class Carrier:
         self.city = city
         self.flights = []
         self.total_workers = 0
+        self.employees = []
         Carrier.all_carriers.append(self)
 
     @classmethod
@@ -615,12 +627,21 @@ class Carrier:
     def add_flight(self, flight):
         self.flights.append(flight)
         return self
+    def add_worker(self, worker):
+        self.employees.append(worker)
+        self.total_workers += 1
+        return self
 
 class Flight:
     def __init__(self, number, starting_city, ending_city):
         self.number = number
         self.starting_city = starting_city
         self.ending_city = ending_city
+
+class Workers:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
 cd_airlines = Carrier(2022, "Code Airlines", 'Fremont')
 my_airline = Carrier(1903, "Wright Bros", 'London')
