@@ -235,16 +235,16 @@ import unittest
             
 # print(two_sum([3,2,4], 6))
 
-def two_sum(nums, target):
-    hashmap = {}
-    for i in range(len(nums)):
-        diff = target - nums[i]
-        if diff in hashmap:
-            return [hashmap[diff], i]
-        else:
-            hashmap[nums[i]] = i
+# def two_sum(nums, target):
+#     hashmap = {}
+#     for i in range(len(nums)):
+#         diff = target - nums[i]
+#         if diff in hashmap:
+#             return [hashmap[diff], i]
+#         else:
+#             hashmap[nums[i]] = i
 
-print(two_sum([1,2,4,6,8], 9))
+# print(two_sum([1,2,4,6,8], 9))
 
 # def palindrome(x):
 #     new_arr=[]
@@ -608,46 +608,79 @@ print(two_sum([1,2,4,6,8], 9))
 
 # print(mySqrt(4))
 
-class Carrier:
-    overseer = 'FAA'
-    all_carriers = []
-    def __init__(self,year, name, city):
-        self.year = year
-        self.name = name
-        self.city = city
-        self.flights = []
-        self.total_workers = 0
-        self.employees = []
-        Carrier.all_carriers.append(self)
+# class Carrier:
+#     overseer = 'FAA'
+#     all_carriers = []
+#     def __init__(self,year, name, city):
+#         self.year = year
+#         self.name = name
+#         self.city = city
+#         self.flights = []
+#         self.total_workers = 0
+#         self.employees = []
+#         Carrier.all_carriers.append(self)
 
-    @classmethod
-    def change_overseer(cls, new_overseer:str):
-        cls.overseer = new_overseer
-        return cls
-    def add_flight(self, flight):
-        self.flights.append(flight)
-        return self
-    def add_worker(self, worker):
-        self.employees.append(worker)
-        self.total_workers += 1
-        return self
+#     @classmethod
+#     def change_overseer(cls, new_overseer:str):
+#         cls.overseer = new_overseer
+#         return cls
+#     def add_flight(self, flight):
+#         self.flights.append(flight)
+#         return self
+#     def add_worker(self, worker):
+#         self.employees.append(worker)
+#         self.total_workers += 1
+#         return self
 
-class Flight:
-    def __init__(self, number, starting_city, ending_city):
-        self.number = number
-        self.starting_city = starting_city
-        self.ending_city = ending_city
+# class Flight:
+#     def __init__(self, number, starting_city, ending_city):
+#         self.number = number
+#         self.starting_city = starting_city
+#         self.ending_city = ending_city
 
-class Workers:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+# class Workers:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
 
-cd_airlines = Carrier(2022, "Code Airlines", 'Fremont')
-my_airline = Carrier(1903, "Wright Bros", 'London')
-flight_one = Flight(555,'seattle', 'reno')
-flight_two = Flight(100, 'phoenix', 'newark')
+# cd_airlines = Carrier(2022, "Code Airlines", 'Fremont')
+# my_airline = Carrier(1903, "Wright Bros", 'London')
+# flight_one = Flight(555,'seattle', 'reno')
+# flight_two = Flight(100, 'phoenix', 'newark')
 
-cd_airlines.add_flight(flight_one).add_flight(flight_two)
+# cd_airlines.add_flight(flight_one).add_flight(flight_two)
 
+from collections import defaultdict
+def groupAnagrams(strs):
+    anagram_map = {}
+    result = []
+    for s in strs:
+        print(s)
+        sorted_s = tuple(sorted(s))
+        print(sorted_s)
+        print(anagram_map)
+        if sorted_s in anagram_map:
+            anagram_map[sorted_s].append(s)
+        else:
+            anagram_map[sorted_s] = [s]
+    for value in anagram_map.values():
+        result.append(value)
+    return result[::-1]
 
+ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+
+print(groupAnagrams(ana))
+
+# def two_sum(nums, target):
+#     hashmap = {}
+#     for i in range(len(nums)):
+#         diff = target - nums[i]
+#         if diff in hashmap:
+#             return [hashmap[diff], i]
+#         else:
+#             hashmap[nums[i]] = i
+
+# my_dict = {('strength','power'): 100}
+
+# if ('strength','power') in my_dict:
+#     print('yes')
