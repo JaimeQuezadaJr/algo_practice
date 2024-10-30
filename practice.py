@@ -650,19 +650,16 @@ import unittest
 
 # cd_airlines.add_flight(flight_one).add_flight(flight_two)
 
-from collections import defaultdict
 def groupAnagrams(strs):
     anagram_map = {}
     result = []
     for s in strs:
-        print(s)
         sorted_s = tuple(sorted(s))
-        print(sorted_s)
-        print(anagram_map)
         if sorted_s in anagram_map:
             anagram_map[sorted_s].append(s)
         else:
             anagram_map[sorted_s] = [s]
+    print(anagram_map)
     for value in anagram_map.values():
         result.append(value)
     return result[::-1]
@@ -684,3 +681,73 @@ print(groupAnagrams(ana))
 
 # if ('strength','power') in my_dict:
 #     print('yes')
+
+# def addTwoNumbers(l1, l2):
+#     dummy = ListNode()
+#     cur_value = dummy
+#     carry = 0
+#     while l1 or l2 or carry:
+#         if l1:
+#             v1 = l1.val
+#         else:
+#             v1 = 0
+#         if l2:
+#             v2 = l2.val
+#         else:
+#             v2 = 0
+#         val = v1 + v2 + carry
+#         carry = val // 10
+#         val = val % 10
+#         cur_value.next = ListNode(val)
+
+#         cur_value = cur_value.next
+#         if l1:
+#             l1 = l1.next
+#         else:
+#             l1 = None
+#         if l2:
+#             l2 = l2.next
+#         else:
+#             l2 = None
+#     return dummy.next
+
+# x = 17 % 10
+# print(x)
+
+# def twoSum(nums, target):
+#     sum_map = {}
+#     for i in range(len(nums)):
+#         diff = target - nums[i]
+#         if diff in sum_map:
+#             return [sum_map[diff], i]
+#         else:
+#             sum_map[nums[i]] = i
+        
+# print(twoSum([2,7,11,15],9))
+
+def lengthOfLongestSubstring(s):
+    l = 0
+    longest = 0
+    sett = set()
+    n = len(s)
+    for r in range(n):
+        while s[r] in sett:
+            sett.remove(s[l])
+            l += 1
+        w = (r-l) + 1
+        longest = max(longest,w)
+        sett.add(s[r])
+    return longest
+
+def findMaxAverage(nums, k):
+    n = len(nums)
+    cur_sum = 0
+    for i in range(k):
+        cur_sum += nums[i]
+    max_avg = cur_sum / k
+    for i in range(k, n):
+        cur_sum += nums[i]
+        cur_sum -= nums[i - k]
+        avg = cur_sum / k
+        max_avg = max(max_avg, avg)
+    return max_avg
