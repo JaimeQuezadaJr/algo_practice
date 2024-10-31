@@ -133,16 +133,16 @@ import unittest
 #     return arr
 # print(insertion_sort([15,9,3,7,1,11]))    
 
-# def selection_sort(arr):
-#     n = len(arr)
-#     for i in range(n):
-#         min_index = i
-#         for j in range(i, n):
-#             if arr[j] < arr[min_index]:
-#                 min_index = j
-#         arr[i], arr[min_index] = arr[min_index], arr[i]
-#     return arr
-# print(selection_sort([15,9,3,7,1,11])) 
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr
+print(selection_sort([15,9,3,7,1,11])) 
 
 # def contain_duplicate(nums):
 #     n = len(nums)
@@ -433,7 +433,7 @@ import unittest
 #             nums.append(target)
 #             return nums.index(target)
 
-# print(searchInsert([1,3,5,6], 4))
+# print(searchInsert([1,3,5,6], 4)) 
 
 #binary search
 # def searchInsert(nums, target):
@@ -650,23 +650,23 @@ import unittest
 
 # cd_airlines.add_flight(flight_one).add_flight(flight_two)
 
-# def groupAnagrams(strs):
-#     anagram_map = {}
-#     result = []
-#     for s in strs:
-#         sorted_s = tuple(sorted(s))
-#         if sorted_s in anagram_map:
-#             anagram_map[sorted_s].append(s)
-#         else:
-#             anagram_map[sorted_s] = [s]
-#     print(anagram_map)
-#     for value in anagram_map.values():
-#         result.append(value)
-#     return result[::-1]
+def groupAnagrams(strs):
+    anagram_map = {}
+    result = []
+    for s in strs:
+        sorted_s = tuple(sorted(s))
+        if sorted_s in anagram_map:
+            anagram_map[sorted_s].append(s)
+        else:
+            anagram_map[sorted_s] = [s]
+    print(anagram_map)
 
-# ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+    return anagram_map.values()
 
-# print(groupAnagrams(ana))
+
+ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+
+print(groupAnagrams(ana))
 
 # def two_sum(nums, target):
 #     hashmap = {}
@@ -795,13 +795,73 @@ import unittest
 
 # print(romanToInt('IV'))
 
-def twoSum(nums, target):
-    num_map = {}
-    for i in range(len(nums)):
-        diff = target - nums[i]
-        if diff in num_map:
-            return [num_map[diff], i]
-        else:
-            num_map[nums[i]] = i
+# def twoSum(nums, target):
+#     num_map = {}
+#     for i in range(len(nums)):
+#         diff = target - nums[i]
+#         if diff in num_map:
+#             return [num_map[diff], i]
+#         else:
+#             num_map[nums[i]] = i
 
-print(twoSum([2,7,11,15], 9))
+# print(twoSum([2,7,11,15], 9))
+
+# def isPalindrome(x):
+#     if x < 0:
+#         return False
+#     l = 0
+#     r = len(str(x)) - 1
+#     while l < r:
+#         if str(x)[l] == str(x)[r]:
+#             l += 1
+#             r -= 1
+#         else:
+#             return False
+#     return True
+
+# print(isPalindrome(12122))
+
+# def fizzBuzz(n):
+#     len = n + 1
+#     new_arr = []
+#     for i in range(1, len):
+#         if i % 3 == 0 and i % 5 == 0:
+#             new_arr.append('FizzBuzz')
+#         elif i % 5 == 0:
+#             new_arr.append('Buzz')
+#         elif i % 3 == 0:
+#             new_arr.append('Fizz')
+#         else:
+#             new_arr.append(f'{i}')
+#     return new_arr
+
+# print(fizzBuzz(15))
+
+# def isPalindrome(s):
+#     clean_phrase = ''
+#     for char in s.lower():
+#         if char.isalnum():
+#             clean_phrase += char
+#     l = 0
+#     r = len(str(clean_phrase)) - 1
+#     while l < r:
+#         if str(clean_phrase[l]) == str(clean_phrase[r]):
+#             l += 1
+#             r -= 1
+#         else:
+#             return False
+#     return True
+
+
+# print(isPalindrome(''))
+
+def longestCommonPrefix(strs):
+    prefix = ''
+    for i in range(len(strs[0])):
+        for s in strs:
+            if i == len(s) or s[i] != strs[0][i]:
+                return prefix
+        prefix += strs[0][i]
+            
+
+print(longestCommonPrefix(['flower', 'flow', 'flight']))
