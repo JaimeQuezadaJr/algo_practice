@@ -650,23 +650,23 @@ import unittest
 
 # cd_airlines.add_flight(flight_one).add_flight(flight_two)
 
-def groupAnagrams(strs):
-    anagram_map = {}
-    result = []
-    for s in strs:
-        sorted_s = tuple(sorted(s))
-        if sorted_s in anagram_map:
-            anagram_map[sorted_s].append(s)
-        else:
-            anagram_map[sorted_s] = [s]
-    print(anagram_map)
-    for value in anagram_map.values():
-        result.append(value)
-    return result[::-1]
+# def groupAnagrams(strs):
+#     anagram_map = {}
+#     result = []
+#     for s in strs:
+#         sorted_s = tuple(sorted(s))
+#         if sorted_s in anagram_map:
+#             anagram_map[sorted_s].append(s)
+#         else:
+#             anagram_map[sorted_s] = [s]
+#     print(anagram_map)
+#     for value in anagram_map.values():
+#         result.append(value)
+#     return result[::-1]
 
-ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+# ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
 
-print(groupAnagrams(ana))
+# print(groupAnagrams(ana))
 
 # def two_sum(nums, target):
 #     hashmap = {}
@@ -725,29 +725,83 @@ print(groupAnagrams(ana))
         
 # print(twoSum([2,7,11,15],9))
 
-def lengthOfLongestSubstring(s):
-    l = 0
-    longest = 0
-    sett = set()
-    n = len(s)
-    for r in range(n):
-        while s[r] in sett:
-            sett.remove(s[l])
-            l += 1
-        w = (r-l) + 1
-        longest = max(longest,w)
-        sett.add(s[r])
-    return longest
+# def lengthOfLongestSubstring(s):
+#     l = 0
+#     longest = 0
+#     sett = set()
+#     n = len(s)
+#     for r in range(n):
+#         while s[r] in sett:
+#             sett.remove(s[l])
+#             l += 1
+#         w = (r-l) + 1
+#         longest = max(longest,w)
+#         sett.add(s[r])
+#     return longest
 
-def findMaxAverage(nums, k):
-    n = len(nums)
-    cur_sum = 0
-    for i in range(k):
-        cur_sum += nums[i]
-    max_avg = cur_sum / k
-    for i in range(k, n):
-        cur_sum += nums[i]
-        cur_sum -= nums[i - k]
-        avg = cur_sum / k
-        max_avg = max(max_avg, avg)
-    return max_avg
+# def findMaxAverage(nums, k):
+#     n = len(nums)
+#     cur_sum = 0
+#     for i in range(k):
+#         cur_sum += nums[i]
+#     max_avg = cur_sum / k
+#     for i in range(k, n):
+#         cur_sum += nums[i]
+#         cur_sum -= nums[i - k]
+#         avg = cur_sum / k
+#         max_avg = max(max_avg, avg)
+#     return max_avg
+
+# def longestPalindromeSub(s):
+#     res = ''
+#     resLen = 0
+#     for i in range(len(s)):
+#         l, r = i, i
+#         while l >= 0 and r < len(s) and s[l] == s[r]:
+#             if (r - l + 1) > resLen:
+#                 res = s[l:r+1]
+#                 resLen = r - l + 1
+#             l -= 1
+#             r += 1
+#         l, r = i, i + 1
+#         while l >= 0 and r < len(s) and s[l] == s[r]:
+#             if (r - l + 1) > resLen:
+#                 res = s[l:r+1]
+#                 resLen = r - l + 1
+#             l -= 1
+#             r += 1
+#     return res
+
+# print(longestPalindromeSub('babad'))
+# import math
+# def reverse(x):
+#     res = 0
+#     while x:
+#         digit = int(math.fmod(x,10))
+#         x = int(x/10)
+#         res = (res * 10) + digit
+#     return res
+
+# print(reverse(-123))
+
+# def romanToInt(s):
+#     roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+#     num = 0
+
+#     for numeral in s:
+#         print(numeral)
+#         num += roman[numeral]
+#     return num
+
+# print(romanToInt('IV'))
+
+def twoSum(nums, target):
+    num_map = {}
+    for i in range(len(nums)):
+        diff = target - nums[i]
+        if diff in num_map:
+            return [num_map[diff], i]
+        else:
+            num_map[nums[i]] = i
+
+print(twoSum([2,7,11,15], 9))
