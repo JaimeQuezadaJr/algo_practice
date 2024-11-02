@@ -874,14 +874,50 @@ import unittest
 # return min(nums_map.values())
 
 
-def findClosestNumber(nums):
-    closest = nums[0]
-    for x in nums:
-        if abs(x) < abs(closest):
-            closest = x
-    if closest < 0 and abs(closest) in nums:
-        return abs(closest)
-    else:
-        return closest
+# def findClosestNumber(nums):
+#     closest = nums[0]
+#     for x in nums:
+#         if abs(x) < abs(closest):
+#             closest = x
+#     if closest < 0 and abs(closest) in nums:
+#         return abs(closest)
+#     else:
+#         return closest
     
-print(findClosestNumber([2, -1, -1]))
+# print(findClosestNumber([2, -1, -1]))
+
+# def mergeAlternately(word1, word2):
+#     A, B = len(word1), len(word2)
+#     a, b = 0, 0
+#     s = []
+#     word = 1
+#     while a < A and b < B:
+#         if word == 1:
+#             s.append(word1[a])
+#             a += 1 
+#             word = 2 
+#         else:
+#             s.append(word2[b])
+#             b += 1
+#             word = 1
+#     while a < A:
+#         s.append(word1[a])
+#         a += 1
+#     while b < B:
+#         s.append(word2[b])
+#         b += 1
+#     return ''.join(s)
+
+# print(mergeAlternately('ab', 'pqrs'))
+
+def romanToInt(s):
+    roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, "M": 1000 }
+    count = 0
+    for i in range(len(s)):
+        if i < len(s) - 1 and roman_map[s[i]] < roman_map[s[i+1]]:
+            count -= roman_map[s[i]]
+        else:
+            count += roman_map[s[i]]
+    return count
+
+print(romanToInt('VI'))
