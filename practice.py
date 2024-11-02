@@ -133,16 +133,16 @@ import unittest
 #     return arr
 # print(insertion_sort([15,9,3,7,1,11]))    
 
-def selection_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        min_index = i
-        for j in range(i, n):
-            if arr[j] < arr[min_index]:
-                min_index = j
-        arr[i], arr[min_index] = arr[min_index], arr[i]
-    return arr
-print(selection_sort([15,9,3,7,1,11])) 
+# def selection_sort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         min_index = i
+#         for j in range(i, n):
+#             if arr[j] < arr[min_index]:
+#                 min_index = j
+#         arr[i], arr[min_index] = arr[min_index], arr[i]
+#     return arr
+# print(selection_sort([15,9,3,7,1,11])) 
 
 # def contain_duplicate(nums):
 #     n = len(nums)
@@ -650,23 +650,23 @@ print(selection_sort([15,9,3,7,1,11]))
 
 # cd_airlines.add_flight(flight_one).add_flight(flight_two)
 
-def groupAnagrams(strs):
-    anagram_map = {}
-    result = []
-    for s in strs:
-        sorted_s = tuple(sorted(s))
-        if sorted_s in anagram_map:
-            anagram_map[sorted_s].append(s)
-        else:
-            anagram_map[sorted_s] = [s]
-    print(anagram_map)
+# def groupAnagrams(strs):
+#     anagram_map = {}
+#     result = []
+#     for s in strs:
+#         sorted_s = tuple(sorted(s))
+#         if sorted_s in anagram_map:
+#             anagram_map[sorted_s].append(s)
+#         else:
+#             anagram_map[sorted_s] = [s]
+#     print(anagram_map)
 
-    return anagram_map.values()
+#     return anagram_map.values()
 
 
-ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+# ana = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
 
-print(groupAnagrams(ana))
+# print(groupAnagrams(ana))
 
 # def two_sum(nums, target):
 #     hashmap = {}
@@ -855,13 +855,33 @@ print(groupAnagrams(ana))
 
 # print(isPalindrome(''))
 
-def longestCommonPrefix(strs):
-    prefix = ''
-    for i in range(len(strs[0])):
-        for s in strs:
-            if i == len(s) or s[i] != strs[0][i]:
-                return prefix
-        prefix += strs[0][i]
+# def longestCommonPrefix(strs):
+#     prefix = ''
+#     for i in range(len(strs[0])):
+#         for s in strs:
+#             if i == len(s) or s[i] != strs[0][i]:
+#                 return prefix
+#         prefix += strs[0][i]
             
 
-print(longestCommonPrefix(['flower', 'flow', 'flight']))
+# print(longestCommonPrefix(['flower', 'flow', 'flight']))
+
+# nums_map = {}
+# target = 0
+# for i in range(len(nums)):
+#     diff = nums[i] - target
+#     nums_map[nums[i]] = abs(diff)
+# return min(nums_map.values())
+
+
+def findClosestNumber(nums):
+    closest = nums[0]
+    for x in nums:
+        if abs(x) < abs(closest):
+            closest = x
+    if closest < 0 and abs(closest) in nums:
+        return abs(closest)
+    else:
+        return closest
+    
+print(findClosestNumber([2, -1, -1]))
