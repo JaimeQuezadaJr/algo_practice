@@ -910,14 +910,76 @@ import unittest
 
 # print(mergeAlternately('ab', 'pqrs'))
 
-def romanToInt(s):
-    roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, "M": 1000 }
-    count = 0
-    for i in range(len(s)):
-        if i < len(s) - 1 and roman_map[s[i]] < roman_map[s[i+1]]:
-            count -= roman_map[s[i]]
-        else:
-            count += roman_map[s[i]]
-    return count
+# def romanToInt(s):
+#     roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, "M": 1000 }
+#     count = 0
+#     for i in range(len(s)):
+#         if i < len(s) - 1 and roman_map[s[i]] < roman_map[s[i+1]]:
+#             count -= roman_map[s[i]]
+#         else:
+#             count += roman_map[s[i]]
+#     return count
 
-print(romanToInt('VI'))
+# print(romanToInt('VI'))
+
+# def isSubsequence(s, t):
+#     sub = ''
+#     n = len(s)
+#     for i in range(n):
+#         for j in t:
+#             if s[i] == j:
+#                 sub += j
+#     if sub == s:
+#         return True
+#     else:
+#         return False
+    
+# print(isSubsequence('aec', 'abcde'))
+
+# def isSubsequence(s, t):
+#     i, j = 0, 0
+#     while i < len(s) and j < len(t):
+#         if s[i] == t[j]:
+#             i += 1
+#         j += 1
+#     print(i)
+#     if i == len(s):
+#         return True
+#     else:
+#         return False
+    
+# print(isSubsequence('ace', 'abcde'))
+
+# def isSubsequence(s, t):
+#     S = len(s)
+#     T = len(t)
+#     if s == '': return True
+#     if S > T : return False
+#     j = 0
+#     for i in range(T):
+#         if t[i] == s[j]:
+#             if j == S - 1:
+#                 return True
+#             j += 1
+#         print(j)
+        
+#     return False
+
+
+    
+# print(isSubsequence('ace', 'abcde'))
+
+def maxProfit(prices):
+    diff_map = {}
+    n = len(prices)
+    largest_price_index = 0
+    smallest_price_index = 0
+    for index in range(n):
+        if prices[index] > largest_price_index:
+            largest_price_index = index
+    for index in range(n):
+        if prices[index] < smallest_price_index:
+            smallest_price_index = index
+    return largest_price_index, smallest_price_index
+
+print(maxProfit([7,1,5,3,6,4]))
