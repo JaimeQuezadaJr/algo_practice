@@ -983,3 +983,19 @@ def maxProfit(prices):
     return largest_price_index, smallest_price_index
 
 print(maxProfit([7,1,5,3,6,4]))
+
+
+def maxProfit(prices):
+    diff_map = {}
+    n = len(prices)
+    largest_price_index = 0
+    smallest_price_index = 0
+    for index in range(n):
+        if prices[index] > largest_price_index:
+            largest_price_index = index
+    for index in range(n):
+        if prices[index] < smallest_price_index:
+            smallest_price_index = index
+    return largest_price_index, smallest_price_index
+
+print(maxProfit([7,1,5,3,6,4]))
