@@ -999,3 +999,16 @@ def maxProfit(prices):
     return largest_price_index, smallest_price_index
 
 print(maxProfit([7,1,5,3,6,4]))
+
+class User:
+    type = 'student'
+    def __init__(self, name, age, sex):
+        self.name = name
+        self.age = age
+        self.sex = sex
+
+    def user_age(self):
+        print(self.age)
+
+user1 = User('john', 22, 'male')
+user1.user_age()
