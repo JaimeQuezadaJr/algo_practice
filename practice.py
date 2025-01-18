@@ -969,46 +969,62 @@ import unittest
     
 # print(isSubsequence('ace', 'abcde'))
 
-def maxProfit(prices):
-    diff_map = {}
-    n = len(prices)
-    largest_price_index = 0
-    smallest_price_index = 0
-    for index in range(n):
-        if prices[index] > largest_price_index:
-            largest_price_index = index
-    for index in range(n):
-        if prices[index] < smallest_price_index:
-            smallest_price_index = index
-    return largest_price_index, smallest_price_index
+# def maxProfit(prices):
+#     diff_map = {}
+#     n = len(prices)
+#     largest_price_index = 0
+#     smallest_price_index = 0
+#     for index in range(n):
+#         if prices[index] > largest_price_index:
+#             largest_price_index = index
+#     for index in range(n):
+#         if prices[index] < smallest_price_index:
+#             smallest_price_index = index
+#     return largest_price_index, smallest_price_index
 
-print(maxProfit([7,1,5,3,6,4]))
+# print(maxProfit([7,1,5,3,6,4]))
 
 
-def maxProfit(prices):
-    diff_map = {}
-    n = len(prices)
-    largest_price_index = 0
-    smallest_price_index = 0
-    for index in range(n):
-        if prices[index] > largest_price_index:
-            largest_price_index = index
-    for index in range(n):
-        if prices[index] < smallest_price_index:
-            smallest_price_index = index
-    return largest_price_index, smallest_price_index
+# def maxProfit(prices):
+#     diff_map = {}
+#     n = len(prices)
+#     largest_price_index = 0
+#     smallest_price_index = 0
+#     for index in range(n):
+#         if prices[index] > largest_price_index:
+#             largest_price_index = index
+#     for index in range(n):
+#         if prices[index] < smallest_price_index:
+#             smallest_price_index = index
+#     return largest_price_index, smallest_price_index
 
-print(maxProfit([7,1,5,3,6,4]))
+# print(maxProfit([7,1,5,3,6,4]))
 
-class User:
-    type = 'student'
-    def __init__(self, name, age, sex):
-        self.name = name
-        self.age = age
-        self.sex = sex
+# class User:
+#     type = 'student'
+#     def __init__(self, name, age, sex):
+#         self.name = name
+#         self.age = age
+#         self.sex = sex
 
-    def user_age(self):
-        print(self.age)
+#     def user_age(self):
+#         print(self.age)
 
-user1 = User('john', 22, 'male')
-user1.user_age()
+# user1 = User('john', 22, 'male')
+# user1.user_age()
+
+def practice_loop(arr):
+    new_arr = set()
+    for i in range(len(arr)):
+        new_arr.add(arr[i])
+    return new_arr
+
+print(practice_loop([1,2,2,3,4,4,5]))
+
+def rotate_list(arr, k):
+    n = len(arr)
+    k = k % n
+    print(k)
+    return arr[-k:] + arr[:-k]
+
+print(rotate_list([1,2,3,4,5,6,7], 9))

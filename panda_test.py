@@ -14,6 +14,3 @@ lowest_score_date = df.loc[df['Resting Heart Rate Score'] == lowest_score, 'date
 
 # print(f'Date: {lowest_score_date}, lowest score: {lowest_score}')
 print(json_str)
-
-x = [{'date', 'night'}, {'hello'}]
-print(x)
