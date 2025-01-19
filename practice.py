@@ -1028,3 +1028,13 @@ def rotate_list(arr, k):
     return arr[-k:] + arr[:-k]
 
 print(rotate_list([1,2,3,4,5,6,7], 9))
+
+def second_largest(arr):
+    largest = arr[0]
+    for i in range(len(arr)):
+        if arr[i] > largest:
+            largest = arr[i]
+    arr.remove(largest)
+    return max(arr)
+
+print(second_largest([1,7,3,9,4,2,6]))
