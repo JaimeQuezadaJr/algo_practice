@@ -1038,3 +1038,27 @@ def second_largest(arr):
     return max(arr)
 
 print(second_largest([1,7,3,9,4,2,6]))
+
+def average(arr):
+    sum = 0
+    for i in range(len(arr)):
+        sum += arr[i]
+    return sum/len(arr)
+
+print(average([2,4,5,8,9,10,12]))
+
+def median(arr):
+    arr.sort()
+    l = len(arr)
+    n = l / 2
+    if l % 2 == 0:
+        y = arr[int(n)]
+        z = arr[int(n) - 1]
+        ave = (y+z) / 2
+        return ave
+    return arr[int(n)]
+
+
+print(median([2,4,5,8,9,10,12]))
+
+1,2,3,5,6,9,10,20
