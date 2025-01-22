@@ -1013,52 +1013,83 @@ import unittest
 # user1 = User('john', 22, 'male')
 # user1.user_age()
 
-def practice_loop(arr):
-    new_arr = set()
-    for i in range(len(arr)):
-        new_arr.add(arr[i])
-    return new_arr
+# def practice_loop(arr):
+#     new_arr = set()
+#     for i in range(len(arr)):
+#         new_arr.add(arr[i])
+#     return new_arr
 
-print(practice_loop([1,2,2,3,4,4,5]))
+# print(practice_loop([1,2,2,3,4,4,5]))
 
-def rotate_list(arr, k):
-    n = len(arr)
-    k = k % n
-    print(k)
-    return arr[-k:] + arr[:-k]
+# def rotate_list(arr, k):
+#     n = len(arr)
+#     k = k % n
+#     print(k)
+#     return arr[-k:] + arr[:-k]
 
-print(rotate_list([1,2,3,4,5,6,7], 9))
+# print(rotate_list([1,2,3,4,5,6,7], 9))
 
-def second_largest(arr):
-    largest = arr[0]
-    for i in range(len(arr)):
-        if arr[i] > largest:
-            largest = arr[i]
-    arr.remove(largest)
-    return max(arr)
+# def second_largest(arr):
+#     largest = arr[0]
+#     for i in range(len(arr)):
+#         if arr[i] > largest:
+#             largest = arr[i]
+#     arr.remove(largest)
+#     return max(arr)
 
-print(second_largest([1,7,3,9,4,2,6]))
+# print(second_largest([1,7,3,9,4,2,6]))
 
-def average(arr):
+# def average(arr):
+#     sum = 0
+#     for i in range(len(arr)):
+#         sum += arr[i]
+#     return sum/len(arr)
+
+# print(average([2,4,5,8,9,10,12]))
+
+# def median(arr): my solution
+#     arr.sort()
+#     l = len(arr)
+#     n = l / 2
+#     if l % 2 == 0:
+#         y = arr[int(n)]
+#         z = arr[int(n) - 1]
+#         ave = (y+z) / 2
+#         return ave
+#     return arr[int(n)]
+
+
+# print(median([2,4,5,8,9,10,12]))
+
+# def median(arr): more efficient solution using floor division to only return quotient
+#     arr.sort()
+#     n = len(arr)
+#     if n % 2 == 0:
+#         return (arr[n//2] + arr[n//2 - 1]) / 2
+#     else:
+#         return arr[n//2]
+
+def sum_elements(arr):
     sum = 0
-    for i in range(len(arr)):
-        sum += arr[i]
-    return sum/len(arr)
+    for i in arr:
+        sum +=i
+    return sum
 
-print(average([2,4,5,8,9,10,12]))
+print(sum_elements([1,2,3,4,5]))
 
-def median(arr):
-    arr.sort()
-    l = len(arr)
-    n = l / 2
-    if l % 2 == 0:
-        y = arr[int(n)]
-        z = arr[int(n) - 1]
-        ave = (y+z) / 2
-        return ave
-    return arr[int(n)]
+def count_occurances(arr, x):
+    count = 0
+    for i in arr:
+        if i == x:
+            count += 1
+    return count
 
+print(count_occurances([1,2,2,3,4,4,5], 10))
 
-print(median([2,4,5,8,9,10,12]))
+def is_sorted(arr):
+    new_arr = sorted(arr)
+    if new_arr == arr:
+        return True
+    return False
 
-1,2,3,5,6,9,10,20
+print(is_sorted([1,2,3,4,5]))
