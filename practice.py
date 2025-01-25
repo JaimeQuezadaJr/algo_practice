@@ -1069,27 +1069,84 @@ import unittest
 #     else:
 #         return arr[n//2]
 
-def sum_elements(arr):
+# def sum_elements(arr):
+#     sum = 0
+#     for i in arr:
+#         sum +=i
+#     return sum
+
+# print(sum_elements([1,2,3,4,5]))
+
+# def count_occurances(arr, x):
+#     count = 0
+#     for i in arr:
+#         if i == x:
+#             count += 1
+#     return count
+
+# print(count_occurances([1,2,2,3,4,4,5], 10))
+
+# def is_sorted(arr):
+#     new_arr = sorted(arr)
+#     if new_arr == arr:
+#         return True
+#     return False
+
+# print(is_sorted([1,2,3,4,5]))
+
+# def find_mode(arr):
+#     new_arr = set(arr)
+#     count_map = {}
+#     for i in new_arr:
+#         count_map[i] = arr.count(i)
+#     return max(count_map.values(), key=count_map.get)
+
+# print(find_mode([1,2,2,2,3,4,4,5]))
+
+# def find_kth_largest(arr,k):
+#     n = len(arr) - k
+#     arr.sort()
+#     return arr[n]
+
+# print(find_kth_largest([3,2,1,5,6,4], 1))
+
+# def find_kth_smallest(arr,k):
+#     if k < 1 or k >= len(arr) + 1:
+#         return False
+#     n = k-1
+#     arr.sort()
+#     return arr[n]
+
+# print(find_kth_smallest([3,2,1,5,6,4], 7))
+
+# def longest_increasing_subsequence(arr):
+#     count = 0
+#     less_than = 0
+#     for i in range(1,len(arr)):
+#         if arr[i-1] < arr[i]:
+#             count +=1
+#             print(i, count)
+#     return count
+
+# print(longest_increasing_subsequence([10, 9, 2, 5, 3, 7, 101, 18, 11, 102, 105]))  # Expected Output: 4
+
+def find_missing_number(arr, n):
+    total = n * (n + 1) // 2
     sum = 0
     for i in arr:
-        sum +=i
-    return sum
+        sum += i
+    return total - sum
 
-print(sum_elements([1,2,3,4,5]))
+print(find_missing_number([3,7,1,2,8,4,5], 10))
 
-def count_occurances(arr, x):
-    count = 0
+def find_duplicates(arr):
+    new_arr = set()
+    results = set()
     for i in arr:
-        if i == x:
-            count += 1
-    return count
+        if i in new_arr:
+            results.add(i)
+        else:
+            new_arr.add(i)
+    return list(results)
 
-print(count_occurances([1,2,2,3,4,4,5], 10))
-
-def is_sorted(arr):
-    new_arr = sorted(arr)
-    if new_arr == arr:
-        return True
-    return False
-
-print(is_sorted([1,2,3,4,5]))
+print(find_duplicates([1,2,2,3,3,4,5,2,3,4]))
